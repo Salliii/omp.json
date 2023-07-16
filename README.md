@@ -21,3 +21,8 @@ upgrade oh-my-posh
 winget upgrade oh-my-posh
 ```
 
+check oh-my-posh's version
+
+```powershell
+oh-my-posh version
+```
