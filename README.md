@@ -2,7 +2,6 @@
 
 ## Windows
 ### install oh-my-posh
-install oh-my-posh with winget
 
 ```bash
 winget install oh-my-posh
