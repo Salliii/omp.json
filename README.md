@@ -9,7 +9,6 @@ winget install XP8K0HKJFRXGCK
 winget upgrade oh-my-posh
 oh-my-posh version
 ```
-
 <br>
 
 ### clone omp theme
@@ -17,7 +16,6 @@ oh-my-posh version
 ```powershell
 git clone https://github.com/Salliii/salliii.omp.git
 ```
-
 <br>
 
 ### apply the PowerShell theme
