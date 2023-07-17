@@ -4,12 +4,12 @@
 ## Install <a href="https://ohmyposh.dev/docs/installation/windows">oh-my-posh</a>
 First, you have to install <a href="https://ohmyposh.dev/docs/installation/windows">oh-my-posh</a> on your local machine.
 
-#### Windows PowerShell
+### Windows PowerShell
 ```powershell
 winget install JanDeDobbeleer.OhMyPosh -s winget
 ```
 
-#### Linux
+### Linux
 ```bash
 brew install jandedobbeleer/oh-my-posh/oh-my-posh
 ```
@@ -31,7 +31,7 @@ After that, you need to set the desired font in your console settings. Visit <a 
 To use the desired theme, you need to make a few changes to the console's profile files.
 Visit <a href="https://ohmyposh.dev/docs/installation/prompt">oh-my-posh</a> for the full configuration options.
 
-#### Windows PowerShell
+### Windows PowerShell
 Open the PowerShell profile script using the following command.
 ```powershell
 notepad $PROFILE
