@@ -1,35 +1,27 @@
-// diffrent user color types when SSHSession or Root
-
-
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 2,
+  "palette": {
+    "sessionDefault": "#f14545",
+    "sessionRoot": "#000000",
+    "sessionSSH": "#000000"
+  },
   "blocks": [
     {
       "type": "prompt",
       "alignment": "left",
       "segments": [
         {
-          "foreground": "#f14545",
+          "type": "session",
           "style": "plain",
-          "template": "{{ .UserName }} | {{ .HostName }} | {{ .SSHSession }} | {{ .Root }}",
-          "type": "session"
-        }
-      ]
-    },
-    {
-      "type": "prompt",
-      "newline": true,
-      "alignment": "left",
-      "segments": [
-        {
-          "foreground": "#f1b845",
-          "style": "plain",
-          "template": "{{ .Path }} | {{ .Parent }} | {{ .RootDir }} | {{ .Location }} | {{ .StackCount }} | {{ .Writable }}",
-          "type": "path"
+          "foreground": "p:sessionDefault",
+          "foreground_templates": [
+            "{{ if .Root }}p:sessionRoot{{ end }}",
+            "{{ if .SSHSession }}p:sessionSSH{{ end }}"
+          ],
+          "template": "{{ if .SSHSession }}SSH:{{ end }}{{ .UserName }}@{{ .HostName }}"
         }
       ]
     }
-
-  ],
-  "version": 2
+  ]
 }
