@@ -3,8 +3,8 @@
   "version": 2,
   "palette": {
     "sessionDefault": "#f14545",
-    "sessionRoot": "#000000",
-    "sessionSSH": "#000000"
+    "sessionRoot": "#00ff00",
+    "sessionSSH": "#0000ff"
   },
   "blocks": [
     {
