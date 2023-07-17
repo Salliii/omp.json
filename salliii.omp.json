@@ -1,0 +1,35 @@
+// diffrent user color types when SSHSession or Root
+
+
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "#f14545",
+          "style": "plain",
+          "template": "{{ .UserName }} | {{ .HostName }} | {{ .SSHSession }} | {{ .Root }}",
+          "type": "session"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "newline": true,
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "#f1b845",
+          "style": "plain",
+          "template": "{{ .Path }} | {{ .Parent }} | {{ .RootDir }} | {{ .Location }} | {{ .StackCount }} | {{ .Writable }}",
+          "type": "path"
+        }
+      ]
+    }
+
+  ],
+  "version": 2
+}
