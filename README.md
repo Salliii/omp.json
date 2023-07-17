@@ -14,6 +14,7 @@ winget install JanDeDobbeleer.OhMyPosh -s winget
 brew install jandedobbeleer/oh-my-posh/oh-my-posh
 ```
 
+<br>
 
 ## Install Nerd Font
 You have to install a Nerd font, otherwise, you might encounter character issues.
@@ -24,6 +25,7 @@ oh-my-posh font install
 Choose one of the displayed fonts and wait until the installation is completed.
 After that, you need to set the desired font in your console settings. Visit <a href="https://ohmyposh.dev/docs/installation/fonts#configuration">oh-my-posh</a> for further information.
 
+<br>
 
 ## Change Prompt
 To use the desired theme, you need to make a few changes to the console's profile files.
