@@ -2,9 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "version": 2,
   "palette": {
-    "sessionDefault": "#f14545",
-    "sessionRoot": "#00ff00",
-    "sessionSSH": "#0000ff"
+    "sessionDefault": "#00ff94",
+    "sessionRoot": "#ff4848",
+    "pathDefault": "#00a6ff",
+    "gitDefault": "#735aff"
   },
   "blocks": [
     {
@@ -16,10 +17,27 @@
           "style": "plain",
           "foreground": "p:sessionDefault",
           "foreground_templates": [
-            "{{ if .Root }}p:sessionRoot{{ end }}",
-            "{{ if .SSHSession }}p:sessionSSH{{ end }}"
+            "{{ if .Root }}p:sessionRoot{{ end }}"
           ],
-          "template": "{{ if .SSHSession }}SSH:{{ end }}{{ .UserName }}@{{ .HostName }}"
+          "template": "{{ .UserName }}@{{ .HostName }}  "
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "p:pathDefault",
+          "template": "{{ .Path }}  ",
+          "properties": {
+            "style": "full"
+          }
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "p:gitDefault",
+          "template": "{{ .RepoName }} {{ .HEAD }}",
+          "properties": {
+            "branch_icon": ""
+          }
         }
       ]
     }
