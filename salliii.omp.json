@@ -1,11 +1,14 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "version": 2,
+  "final_space": true,
   "palette": {
-    "sessionDefault": "#00ff94",
-    "sessionRoot": "#ff4848",
-    "pathDefault": "#00a6ff",
-    "gitDefault": "#735aff"
+    "osIcon": "#47edff",
+    "sessionUser": "#47edff",
+    "exitFailed": "#ff0000",
+    "exitPassed": "#00ff00",
+    "cmdPrompt": "#ff8945",
+    "dimmed": "#6c6c6c"
   },
   "blocks": [
     {
@@ -13,30 +16,68 @@
       "alignment": "left",
       "segments": [
         {
-          "type": "session",
+          "type": "os",
           "style": "plain",
-          "foreground": "p:sessionDefault",
-          "foreground_templates": [
-            "{{ if .Root }}p:sessionRoot{{ end }}"
-          ],
-          "template": "{{ .UserName }}@{{ .HostName }}  "
-        },
-        {
-          "type": "path",
-          "style": "plain",
-          "foreground": "p:pathDefault",
-          "template": "{{ .Path }}  ",
+          "foreground": "p:osIcon",
+          "template": "{{ .Icon }}  <p:dimmed>\u276f</> ",
           "properties": {
-            "style": "full"
+            "kali": "\uf327"
           }
         },
         {
-          "type": "git",
+          "type": "session",
           "style": "plain",
-          "foreground": "p:gitDefault",
-          "template": "{{ .RepoName }} {{ .HEAD }}",
+          "foreground": "p:sessionUser",
+          "template": "{{ .UserName }}  <p:dimmed>\u276f</> "
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:cmdPrompt",
+          "template": "{{ if .Root }}💀{{ end }}#"
+        }
+      ]
+    },
+    {
+      "type": "rprompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "type": "exit",
+          "style": "plain",
+          "foreground": "p:exitPassed",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}p:exitFailed{{ end }}"
+          ],
+          "template": " {{ if gt .Code 0 }}\u2a2f{{else}}\u2713{{ end }}",
           "properties": {
-            "branch_icon": ""
+            "always_enabled": true
+          }
+        },
+        {
+          "type": "executiontime",
+          "style": "plain",
+          "foreground": "p:dimmed",
+          "template": " {{ .FormattedMs }}",
+          "properties": {
+            "always_enabled": true,
+            "style": "austin"
+          }
+        },
+        {
+          "type": "time",
+          "style": "plain",
+          "foreground": "p:dimmed",
+          "template": " · {{.CurrentDate | date .Format}}",
+          "properties": {
+            "time_format": "03:04:05"
           }
         }
       ]
