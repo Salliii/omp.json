@@ -3,8 +3,9 @@
   "version": 2,
   "final_space": true,
   "palette": {
-    "osIcon": "#47edff",
-    "sessionUser": "#47edff",
+    "basicColor": "#ffffff",
+    "pathWritable": "#7fffdf",
+    "pathUnwritable": "#ff5050",
     "exitFailed": "#ff0000",
     "exitPassed": "#00ff00",
     "cmdPrompt": "#ff8945",
@@ -18,7 +19,7 @@
         {
           "type": "os",
           "style": "plain",
-          "foreground": "p:osIcon",
+          "foreground": "p:basicColor",
           "template": "{{ .Icon }}  <p:dimmed>\u276f</> ",
           "properties": {
             "kali": "\uf327"
@@ -27,8 +28,27 @@
         {
           "type": "session",
           "style": "plain",
-          "foreground": "p:sessionUser",
-          "template": "{{ .UserName }}  <p:dimmed>\u276f</> "
+          "foreground": "p:basicColor",
+          "template": "{{ .UserName }} "
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "p:basicColor",
+          "template": "{{ if .Writable }}<p:pathWritable>{{ else }}<p:pathUnwritable>{{ end }}\ue5ff {{ if .WSL }}[wsl]{{ end }}{{ .Path }}</> ",
+          "properties": {
+            "style": "full"
+          }
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "p:basicColor",
+          "template": "\uF408 {{ .HEAD }}·{{ .Working.Untracked }}",
+          "properties": {
+            "fetch_status": true,
+            "branch_icon": ""
+          }
         }
       ]
     },
@@ -77,7 +97,7 @@
           "foreground": "p:dimmed",
           "template": " · {{.CurrentDate | date .Format}}",
           "properties": {
-            "time_format": "03:04:05"
+            "time_format": "15:04:05"
           }
         }
       ]
