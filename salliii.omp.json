@@ -8,7 +8,7 @@
     "pathUnwritable": "#ff5050",
     "exitFailed": "#ff0000",
     "exitPassed": "#00ff00",
-    "cmdPrompt": "#ff8945",
+    "cmdPrompt": "#ffb545",
     "dimmed": "#6c6c6c"
   },
   "blocks": [
@@ -17,34 +17,27 @@
       "alignment": "left",
       "segments": [
         {
-          "type": "os",
-          "style": "plain",
-          "foreground": "p:basicColor",
-          "template": "{{ .Icon }}  <p:dimmed>\u276f</> ",
-          "properties": {
-            "kali": "\uf327"
-          }
-        },
-        {
           "type": "session",
           "style": "plain",
           "foreground": "p:basicColor",
-          "template": "{{ .UserName }} "
+          "template": "{{ .UserName }}  "
         },
         {
           "type": "path",
           "style": "plain",
           "foreground": "p:basicColor",
-          "template": "{{ if .Writable }}<p:pathWritable>{{ else }}<p:pathUnwritable>{{ end }}\ue5ff {{ if .WSL }}[wsl]{{ end }}{{ .Path }}</> ",
+          "template": "{{ if .Writable }}<p:pathWritable>{{ else }}<p:pathUnwritable>{{ end }}\uf114 {{ if .WSL }}[wsl]{{ end }}{{ .Path }}</>",
           "properties": {
-            "style": "full"
+            "style": "full",
+            "mapped_locations_enabled": false,
+            "home_icon": ""
           }
         },
         {
           "type": "git",
           "style": "plain",
           "foreground": "p:basicColor",
-          "template": "\uF408 {{ .HEAD }}·{{ .Working.Untracked }}",
+          "template": "<p:dimmed>·</><d>{{ .HEAD }}</d>",
           "properties": {
             "fetch_status": true,
             "branch_icon": ""
@@ -54,19 +47,6 @@
     },
     {
       "type": "prompt",
-      "alignment": "left",
-      "newline": true,
-      "segments": [
-        {
-          "type": "text",
-          "style": "plain",
-          "foreground": "p:cmdPrompt",
-          "template": "{{ if .Root }}💀{{ end }}#"
-        }
-      ]
-    },
-    {
-      "type": "rprompt",
       "alignment": "right",
       "segments": [
         {
@@ -99,6 +79,19 @@
           "properties": {
             "time_format": "15:04:05"
           }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:cmdPrompt",
+          "template": "{{ if .Root }}💀{{ end }}<p:dimmed>·</>\u276f"
         }
       ]
     }
