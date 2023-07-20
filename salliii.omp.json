@@ -26,7 +26,7 @@
           "type": "path",
           "style": "plain",
           "foreground": "p:basicColor",
-          "template": "{{ if .Writable }}<p:pathWritable>{{ else }}<p:pathUnwritable>{{ end }}\uf114 {{ if .WSL }}[wsl]{{ end }}{{ .Path }}</>",
+          "template": "{{ if .Writable }}<p:pathWritable>{{ else }}<p:pathUnwritable>{{ end }}{{ if .WSL }}[wsl]{{ end }}\uf114 {{ .Path }}</>",
           "properties": {
             "style": "full",
             "mapped_locations_enabled": false,
